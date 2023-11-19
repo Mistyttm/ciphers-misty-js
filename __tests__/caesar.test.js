@@ -1,4 +1,4 @@
-import { ceasar } from "../src/ciphers";
+import { ceasar } from "@ciphers";
 
 test("ceasar cipher encode 'abc' shift 1", () => {
     expect(ceasar("abc", 1, true)).toBe("bcd");
