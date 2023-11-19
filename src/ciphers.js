@@ -59,4 +59,8 @@ function vigenere(text, keyword, encode) {
     return message;
 }
 
-module.exports = {ceasar, vigenere};
+function trifid(text, keyword, groupsize, encode) {
+    return 0;
+}
+
+module.exports = {ceasar, vigenere, trifid};
