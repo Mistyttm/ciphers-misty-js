@@ -4,7 +4,7 @@
   "description": "A package containing various ciphers",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/Mistyttm/ciphers-misty-js/issues"
   },
-  "homepage": "https://github.com/Mistyttm/ciphers-misty-js#readme"
+  "homepage": "https://github.com/Mistyttm/ciphers-misty-js#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "jest": "^29.7.0"
+  }
 }
