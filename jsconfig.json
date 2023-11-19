@@ -1,7 +1,5 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "ES2016",
         "baseUrl": "./src",
         "paths": {
             "@ciphers": ["./ciphers.js"],
