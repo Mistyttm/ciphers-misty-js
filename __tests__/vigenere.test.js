@@ -1,17 +1,27 @@
-import { vigenere } from "@ciphers";
+let ciphers = require('../src/ciphers');
+let assert = require('assert');
 
-test("vigenere cipher encode 'This is a test phrase' keyword: TEST", () => {
-    expect(vigenere("This is a test phrase", "TEST", true)).toBe("Mlal bw s mxwl iavslx");
+describe('Vigenere', function () {
+    describe('Encode', function () {
+        describe('Keyword: TEST', function () {
+            it('Should return "Mlal bw s mxwl iavslx"', function () {
+                assert.equal(ciphers.vigenere("This is a test phrase", "TEST", true), "Mlal bw s mxwl iavslx");
+            });
+        });
+        describe('Keyword: TESTING', function () {
+            it('Should return "Mlal qf g mikm xuxtww"', function () {
+                assert.equal(ciphers.vigenere("This is a test phrase", "TESTING", true), "Mlal qf g mikm xuxtww")
+            });
+        });
+    });
 });
 
-test("vigenere cipher decode 'This is a test phrase' keyword: TEST", () => {
-    expect(vigenere("Mlal bw s mxwl iavslx", "TEST", false)).toBe("This is a test phrase");
-});
-
-test("vigenere cipher rejects 'This is a test phrase' keyword: test", () => {
-    expect(vigenere("This is a test phrase", "test", false)).rejects;
-});
-
-test("vigenere cipher encode 'This is a test phrase' keyword: TEST", () => {
-    expect(vigenere("This is a test phrase", "TESTING", true)).toBe("Mlal qf g mikm xuxtww");
+describe('Vigenere', function () {
+    describe('Decode', function () {
+        describe('Keyword: TEST', function () {
+            it('Should return "This is a test phrase"', function () {
+                assert.equal(ciphers.vigenere("Mlal bw s mxwl iavslx", "TEST", false), "This is a test phrase")
+            })
+        })
+    })
 });

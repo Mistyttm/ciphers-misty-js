@@ -1,57 +1,70 @@
-import { ceasar } from "@ciphers";
+let cipher = require('../src/ciphers');
+let assert = require('assert');
 
-test("ceasar cipher encode 'abc' shift 1", () => {
-    expect(ceasar("abc", 1, true)).toBe("bcd");
-});
+describe('Caesar', function () {
+    describe('Encode', function () {
+        describe('Key: 1', function () {
+            it('Should return "bcd"', function () {
+                expect(cipher.ceasar("abc", 1, true)).toBe("bcd");
+            });
 
-test("ceasar cipher encode 'ABC' shift 1", () => {
-    expect(ceasar("ABC", 1, true)).toBe("BCD");
-});
+            it("should encode 'ABC' with shift 1", () => {
+                expect(cipher.ceasar("ABC", 1, true)).toBe("BCD");
+            });
+    
+            it("should encode 'abc ABC' with shift 1", () => {
+                expect(cipher.ceasar("abc ABC", 1, true)).toBe("bcd BCD");
+            });
+    
+            it("should encode 'xyz' with shift 1", () => {
+                expect(cipher.ceasar("xyz", 1, true)).toBe("yza");
+            });
+    
+            it("should encode 'XYZ' with shift 1", () => {
+                expect(cipher.ceasar("XYZ", 1, true)).toBe("YZA");
+            });
+    
+            it("should encode 'xyz XYZ' with shift 1", () => {
+                expect(cipher.ceasar("xyz XYZ", 1, true)).toBe("yza YZA");
+            });
+        });
+        describe('Key: 5', function () {
+            it("should encode 'This is a test!' with shift 5", () => {
+                expect(cipher.ceasar("This is a test!", 5, true)).toBe("Ymnx nx f yjxy!");
+            });
+        });
+    });
 
-test("ceasar cipher encode 'abc ABC' shift 1", () => {
-    expect(ceasar("abc ABC", 1, true)).toBe("bcd BCD");
-});
+    describe('Decode', function () {
+        describe('Key: 1', function () {
+            it('Should return "abc"', function () {
+                expect(cipher.ceasar("bcd", 1, false)).toBe("abc");
+            });
 
-test("ceasar cipher encode 'xyz' shift 1", () => {
-    expect(ceasar("xyz", 1, true)).toBe("yza");
-});
-
-test("ceasar cipher encode 'XYZ' shift 1", () => {
-    expect(ceasar("XYZ", 1, true)).toBe("YZA");
-});
-
-test("ceasar cipher encode 'xyz XYZ' shift 1", () => {
-    expect(ceasar("xyz XYZ", 1, true)).toBe("yza YZA");
-});
-
-test("ceasar cipher encode 'This is a test!' shift 5", () => {
-    expect(ceasar("This is a test!", 5, true)).toBe("Ymnx nx f yjxy!");
-});
-
-test("ceasar cipher decode 'bcd' shift 1", () => {
-    expect(ceasar("bcd", 1, false)).toBe("abc");
-});
-
-test("ceasar cipher decode 'BCD' shift 1", () => {
-    expect(ceasar("BCD", 1, false)).toBe("ABC");
-});
-
-test("ceasar cipher decode 'bcd BCD' shift 1", () => {
-    expect(ceasar("bcd BCD", 1, false)).toBe("abc ABC");
-});
-
-test("ceasar cipher decode 'yza' shift 1", () => {
-    expect(ceasar("yza", 1, false)).toBe("xyz");
-});
-
-test("ceasar cipher decode 'YZA' shift 1", () => {
-    expect(ceasar("YZA", 1, false)).toBe("XYZ");
-});
-
-test("ceasar cipher decode 'yza YZA' shift 1", () => {
-    expect(ceasar("yza YZA", 1, false)).toBe("xyz XYZ");
-});
-
-test("ceasar cipher decode 'Ymnx nx f yjxy!' shift 5", () => {
-    expect(ceasar("Ymnx nx f yjxy!", 5, false)).toBe("This is a test!");
+            it("should decode 'BCD' with shift 1", () => {
+                expect(cipher.ceasar("BCD", 1, false)).toBe("ABC");
+            });
+    
+            it("should decode 'bcd BCD' with shift 1", () => {
+                expect(cipher.ceasar("bcd BCD", 1, false)).toBe("abc ABC");
+            });
+    
+            it("should decode 'yza' with shift 1", () => {
+                expect(cipher.ceasar("yza", 1, false)).toBe("xyz");
+            });
+    
+            it("should decode 'YZA' with shift 1", () => {
+                expect(cipher.ceasar("YZA", 1, false)).toBe("XYZ");
+            });
+    
+            it("should decode 'yza YZA' with shift 1", () => {
+                expect(cipher.ceasar("yza YZA", 1, false)).toBe("xyz XYZ");
+            });
+        });
+        describe('Key: 5', function () {
+            it("should decode 'Ymnx nx f yjxy!' with shift 5", () => {
+                expect(cipher.ceasar("Ymnx nx f yjxy!", 5, false)).toBe("This is a test!");
+            });
+        });
+    });
 });
