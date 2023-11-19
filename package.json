@@ -1,0 +1,23 @@
+{
+  "name": "ciphers-misty-js",
+  "version": "1.0.0",
+  "description": "A package containing various ciphers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mistyttm/ciphers-misty-js.git"
+  },
+  "keywords": [
+    "cipher",
+    "cryptography"
+  ],
+  "author": "misty_ttm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mistyttm/ciphers-misty-js/issues"
+  },
+  "homepage": "https://github.com/Mistyttm/ciphers-misty-js#readme"
+}
