@@ -5,7 +5,7 @@
         "checkJs": true,
         "baseUrl": "./src",
         "paths": {
-            "@ciphers/*": ["./ciphers.ts"],
+            "@ciphers": ["./ciphers.ts"],
         }
     },
     "exclude": [
