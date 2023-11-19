@@ -2,10 +2,10 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "ES2016",
-        "checkJs": true,
         "baseUrl": "./src",
         "paths": {
-            "@ciphers": ["./ciphers.ts"],
+            "@ciphers": ["./ciphers.js"],
+            "@tests/*": ["../__tests__/*"]
         }
     },
     "exclude": [
