@@ -1,7 +1,7 @@
 // Regex for non letters
 const specialRegex = /[\d\W\s_]/g;
 
-function encodeCharacter(character: string, key: number, isUpperCase: boolean, isEncode: boolean){
+function encodeCharacter(character, key, isUpperCase, isEncode){
     const base = isUpperCase ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
     const offset = character.charCodeAt(0) - base;
     let encodedOffset = 0;
@@ -15,7 +15,7 @@ function encodeCharacter(character: string, key: number, isUpperCase: boolean, i
     
 }
 
-export function ceasar(text: string, key: number, encode: boolean) {
+export function ceasar(text, key, encode) {
     let message = "";
     for (const character of text){
         if (specialRegex.test(character)){
@@ -30,7 +30,7 @@ export function ceasar(text: string, key: number, encode: boolean) {
     return message;
 }
 
-export function vigenere(text: string, keyword: string, encode: boolean) {
+export function vigenere(text, keyword, encode) {
 
     if (keyword === keyword.toLowerCase()){
         return 0;
