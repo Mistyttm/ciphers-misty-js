@@ -12,6 +12,6 @@ test("vigenere cipher rejects 'This is a test phrase' keyword: test", () => {
     expect(vigenere("This is a test phrase", "test", false)).rejects;
 });
 
-test("vigenere cipher encode 'This is a test phrase' keyword: TESTING", () => {
+test("vigenere cipher encode 'This is a test phrase' keyword: TEST", () => {
     expect(vigenere("This is a test phrase", "TESTING", true)).toBe("Mlal qf g mikm xuxtww");
 });
