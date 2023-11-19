@@ -1,8 +1,12 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "ES6",
+        "target": "ES2016",
         "checkJs": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@ciphers/*": ["./ciphers.ts"],
+        }
     },
     "exclude": [
         "node_modules"
