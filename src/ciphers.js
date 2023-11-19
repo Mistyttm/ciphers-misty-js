@@ -14,7 +14,7 @@ function encodeCharacter(character, key, isUpperCase, isEncode) {
     }
 }
 
-export function ceasar(text, key, encode) {
+function ceasar(text, key, encode) {
     let message = "";
     for (const character of text) {
         if (specialRegex.test(character)) {
@@ -29,7 +29,7 @@ export function ceasar(text, key, encode) {
     return message;
 }
 
-export function vigenere(text, keyword, encode) {
+function vigenere(text, keyword, encode) {
     if (keyword === keyword.toLowerCase()) {
         keyword = keyword.toUpperCase();
     }
@@ -58,3 +58,5 @@ export function vigenere(text, keyword, encode) {
 
     return message;
 }
+
+module.exports = {ceasar, vigenere};
