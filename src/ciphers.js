@@ -60,7 +60,35 @@ function vigenere(text, keyword, encode) {
 }
 
 function trifid(text, keyword, groupsize, encode) {
-    return 0;
+    let message = '';
+    let messageArray = [];
+
+    let square1 = [];
+    let square2 = [];
+    let square3 = [];
+
+    let cube = []
+
+    for (let i=0; i<=keyword.length; i+= 3){
+        let tempArray = [];
+        const tempString = keyword.substring(i, i+3);
+
+        tempArray = tempString.split('');
+
+        if (i <= 8) {
+            square1.push(tempArray);
+        } else if (i <= 17) {
+            square2.push(tempArray);
+        } else if (i <= 26) {
+            square3.push(tempArray);
+        }
+    }
+
+    cube.push(square1, square2, square3);
+
+
+    
+    return cube;
 }
 
 module.exports = {ceasar, vigenere, trifid};
