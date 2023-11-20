@@ -1,11 +1,12 @@
 const { trifid } = require('../src/ciphers');
+let assert = require('assert');
 
 describe('Trifid', function () {
     describe('Encode', function () {
         describe('Keyword: felixmardstbcghjknopquvwyz+', function () {
             describe('Groupsize: 7', function() {
                 it('Should return "cytegwfczappuypqtvfsuyxeasgklqb+mip"', function () {
-                    assert.equal(trifid("the quick brown fox jumps over the lazy dog", "felixmardstbcghjknopquvwyz", 7, true), "cytegwfczappuypqtvfsuyxeasgklqb+mip");
+                    assert.equal(trifid("the quick brown fox jumps over the lazy dog", "felixmardstbcghjknopquvwyz+", 7, true), "cytegwfczappuypqtvfsuyxeasgklqb+mip");
                 });
             })
             
@@ -16,7 +17,7 @@ describe('Trifid', function () {
             describe('Keyword: felixmardstbcghjknopquvwyz+', function () {
                 describe('Groupsize: 7', function() {
                     it('Should return "the quick brown fox jumps over the lazy dog"', function () {
-                        assert.equal(trifid("cytegwfczappuypqtvfsuyxeasgklqb+mip", "felixmardstbcghjknopquvwyz", 7, true), "the quick brown fox jumps over the lazy dog");
+                        assert.equal(trifid("cytegwfczappuypqtvfsuyxeasgklqb+mip", "felixmardstbcghjknopquvwyz+", 7, true), "the quick brown fox jumps over the lazy dog");
                     });
                 })
                 
